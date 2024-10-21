@@ -1,19 +1,27 @@
 import "./App.css";
-import Articulo from "./Articulo";
+import Card from "./Components/Card";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
     <>
-      <h1>Hola Camada 1</h1>
-      <p>Mi primer proyecto de Vite</p>
-      <ul>
-        <li>Elemento 1</li>
-        <li>Elemento 2</li>
-        <li>Elemento 3</li>
-        <li>Elemento 4</li>
-        <li>Elemento 5</li>
-      </ul>
-      <Articulo />
+      <Navbar />
+      <h1>Bienvenido al proyecto de recetas</h1>
+      <Card title="Receta ejemplo 1" text="Instrucciones para hacer un budin" />
+      <Card title="Receta 2" text="Como leudar una masa de pizza" />
+      <Card
+        title="Esta es otra receta más"
+        text="Como hacer para que la pasta salga deliciosa"
+      />
+
+      <h3>Quienes somos</h3>
+      <Card title="Luis Cerda" text="Desarrollador Full Stack">
+        <h3>Facebook</h3>
+      </Card>
+      <Card title="Nikoll Quintero" text="Ingeniera Devops">
+        <h3>Behance</h3>
+        <h3>Linkedin</h3>
+      </Card>
     </>
   );
 }
