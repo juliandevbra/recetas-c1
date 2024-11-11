@@ -2,9 +2,6 @@ import { useState } from "react";
 import Message from "./Message";
 
 const Form = () => {
-  // const [nombre, setNombre] = useState("");
-  // const [direccion, setDireccion] = useState("");
-
   const [user, setUser] = useState({
     nombre: "",
     direccion: "",
@@ -13,9 +10,28 @@ const Form = () => {
   const [show, setShow] = useState(false);
   const [error, setError] = useState(false);
 
+  const handleChange = (event) => {
+    console.log(event.target.name, event.target.value);
+    setUser({
+      ...user,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const regexNum = /[0-9]/;
+
+    // regex
+    // let validacionParaQueNoHayaEspaciosAlPrincipio = /^\s/
+    // !/^\s/.test(user.nombre)
+    //user.nombre.startsWith(" ") -> boolean
+    // los strings son de alguna arrays de caracteres
+    // user.nombre[0] !== " " -> boolean
+    // trimStart()
+    // user.nombre.includes(" ") ❌
+    // user.nombre.substring(0,1) == " "
+
     console.log(regexNum.test(user.direccion));
     if (
       user.nombre.trim().length >= 3 &&
@@ -38,17 +54,15 @@ const Form = () => {
           <input
             type="text"
             value={user.nombre}
-            onChange={(event) =>
-              setUser({ ...user, nombre: event.target.value })
-            }
+            name="nombre"
+            onChange={handleChange}
           />
           <label>Dirección</label>
           <input
             type="text"
             value={user.direccion}
-            onChange={(event) =>
-              setUser({ ...user, direccion: event.target.value })
-            }
+            name="direccion"
+            onChange={handleChange}
           />
           <button>Enviar</button>
           {error ? (
