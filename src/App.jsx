@@ -2,9 +2,8 @@ import "./styles/App.css";
 import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
 import Form from "./Components/Form";
-import ClassComponent from "./Clase 9/ClassComponent";
-import FuncComponent from "./Clase 9/FuncComponent";
-import { useState } from "react";
+import FetchExample from "./Clase 10/FetchExample";
+import AxiosExample from "./Clase 10/AxiosExample";
 
 const titleStyles = {
   backgroundColor: "#ffda92",
@@ -16,19 +15,14 @@ const titleStyles = {
 };
 
 function App() {
-  const [toggle, setToggle] = useState(true);
   return (
     <>
-      {/* <ClassComponent /> */}
-      {toggle && <FuncComponent />}
-      <button onClick={() => setToggle(!toggle)}>
-        {toggle ? "Esconder" : "Mostrar"} componente
-      </button>
-
-      {/* <Navbar />
+      {/* <FetchExample /> */}
+      {/* <AxiosExample /> */}
+      <Navbar />
       <h1 style={titleStyles}>Bienvenido al proyecto de recetas</h1>
       <Form />
-      <Home /> */}
+      <Home />
     </>
   );
 }
