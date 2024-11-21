@@ -1,30 +1,31 @@
 import "./styles/App.css";
-import Home from "./Components/Home";
+import Home from "./Pages/Home";
 import Navbar from "./Components/Navbar";
-import Form from "./Components/Form";
-import FetchExample from "./Clase 10/FetchExample";
-import AxiosExample from "./Clase 10/AxiosExample";
-
-const titleStyles = {
-  backgroundColor: "#ffda92",
-  color: "firebrick",
-  width: "40%",
-  margin: "10px auto",
-  borderRadius: "10px",
-  padding: "10px",
-};
+import Form from "./Pages/Form";
+import { Route, Routes } from "react-router-dom";
+import Cart from "./Pages/Cart";
+import { routes } from "./utils/routes";
+import Detail from "./Pages/Detail";
 
 function App() {
   return (
     <>
-      {/* <FetchExample /> */}
-      {/* <AxiosExample /> */}
       <Navbar />
-      <h1 style={titleStyles}>Bienvenido al proyecto de recetas</h1>
-      <Form />
-      <Home />
+      <Routes>
+        <Route path={routes.home} element={<Home />} />
+        <Route path={routes.form} element={<Form />} />
+        <Route path={routes.cart} element={<Cart />} />
+        <Route path={routes.detail} element={<Detail />} />
+        <Route
+          path={routes.pnf}
+          element={<h1>Page not found - Error 404</h1>}
+        />
+      </Routes>
     </>
   );
 }
 
 export default App;
+
+// http://localhost:5173/
+// https://www.youtube.com/

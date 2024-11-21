@@ -16,7 +16,7 @@ const Counter = () => {
   };
   //   console.log(counter);
   return (
-    <div>
+    <div className="btnGroup">
       <button disabled={counter == 0} onClick={restar}>
         -
       </button>

@@ -1,13 +1,16 @@
+import { Link } from "react-router-dom";
 import { cardContainer } from "../styles/Card.module.css";
 import Counter from "./Counter";
 
 const Card = ({ recipe, cart, setCart }) => {
-  const { image, title, pricePerServing } = recipe;
+  const { image, title, pricePerServing, id } = recipe;
   return (
     <div className={cardContainer}>
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
-      <h4>{pricePerServing}</h4>
+      <Link to={`/detail/${id}`}>
+        <img src={image} alt={title} />
+        <h3>{title}</h3>
+      </Link>
+      <h4>${pricePerServing}</h4>
       <Counter />
       <button onClick={() => setCart([...cart, recipe])}>Agregar al 🛒</button>
     </div>

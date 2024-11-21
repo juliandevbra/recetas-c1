@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Message from "./Message";
+import Message from "../Components/Message";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const [user, setUser] = useState({
@@ -9,7 +10,7 @@ const Form = () => {
   console.log(user);
   const [show, setShow] = useState(false);
   const [error, setError] = useState(false);
-
+  const navigate = useNavigate();
   const handleChange = (event) => {
     console.log(event.target.name, event.target.value);
     setUser({
@@ -21,18 +22,6 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const regexNum = /[0-9]/;
-
-    // regex
-    // let validacionParaQueNoHayaEspaciosAlPrincipio = /^\s/
-    // !/^\s/.test(user.nombre)
-    //user.nombre.startsWith(" ") -> boolean
-    // los strings son de alguna arrays de caracteres
-    // user.nombre[0] !== " " -> boolean
-    // trimStart()
-    // user.nombre.includes(" ") ❌
-    // user.nombre.substring(0,1) == " "
-
-    console.log(regexNum.test(user.direccion));
     if (
       user.nombre.trim().length >= 3 &&
       user.direccion.trim().includes(" ") &&
@@ -40,6 +29,9 @@ const Form = () => {
     ) {
       setShow(true);
       setError(false);
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } else {
       setError(true);
     }
@@ -77,13 +69,3 @@ const Form = () => {
 };
 
 export default Form;
-
-// {
-//   condicion ? true : false;
-// }
-
-// if(condicion){
-//   condicion es true
-// } else {
-//   condicion es false
-// }
