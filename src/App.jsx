@@ -6,17 +6,12 @@ import { Route, Routes } from "react-router-dom";
 import Cart from "./Pages/Cart";
 import { routes } from "./utils/routes";
 import Detail from "./Pages/Detail";
-import LoboEstepario from "./Clase 13/LoboEstepario";
-import ParentComponent from "./Clase 13/ParentComponent";
-import Context from "./Clase 13/Context";
+import Counter from "./Clase 14/Counter";
 
 function App() {
   return (
     <>
-      {/* <Context>
-        <ParentComponent />
-        <LoboEstepario />
-      </Context> */}
+      {/* <Counter /> */}
       <Navbar />
       <Routes>
         <Route path={routes.home} element={<Home />} />
